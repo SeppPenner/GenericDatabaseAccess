@@ -6,7 +6,7 @@ The assembly was written and tested in .Net 4.6.2.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/xwfx8q48taebdx2e?svg=true)](https://ci.appveyor.com/project/SeppPenner/genericdatabaseaccess)
 
-## Example usage:
+## Example initialization:
 
 ```csharp
 using System;
@@ -92,6 +92,88 @@ namespace ExampleUsage
     }
 }
 ```
+
+## Example usage:
+
+```csharp
+var merchant = _databaseAdapter.Get<Merchant>(x => !x.Deleted && x.Id == 1);
+var merchants = _databaseAdapter.Get<Merchant, bool>(x => !x.Deleted);
+var merchantCount = _databaseAdapter.Count<Merchant>();
+var merchantCount2 = _databaseAdapter.Count<Merchant>(x => !x.Deleted);
+var merchantToInsert = new Merchant();
+var inserted = _databaseAdapter.Insert(merchantToInsert);
+var merchantToUpdate = new Merchant();
+var update = _databaseAdapter.Update(merchantToUpdate);
+var deleted = _databaseAdapter.Delete(merchantToUpdate);
+var sorted = _databaseAdapter.Get<Merchant, bool>(x => !x.Deleted, x.Name);
+```
+
+## All available methods:
+
+```csharp
+public interface IDatabaseAdapter
+{
+	void SetCurrentLanguage(ILanguage language);
+
+	ILanguage GetCurrentLanguage();
+
+	string GetDatabasePath();
+
+	string GetConnectionString();
+
+	void CreateBoughtTable();
+
+	void CreateCompanyEndingsTable();
+
+	void CreateCompanyNamesTable();
+
+	void CreateDummyCompanyTable();
+
+	void CreateMerchantTable();
+
+	void CreateNamesTable();
+
+	void CreateSoldTable();
+
+	void CreateStockTable();
+
+	void CreateStockHistoryTable();
+
+	void CreateStockMarketTable();
+
+	void CreateSurnamesTable();
+
+	void CreateTaxesTable();
+
+	void CreateAllTables();
+
+	List<T> Get<T>();
+
+	T Get<T>(long id);
+
+	ObservableCollection<T> Get<T, TValue>(Expression<Func<T, bool>> predicate = null,
+		Expression<Func<T, TValue>> orderBy = null);
+
+	T Get<T>(Expression<Func<T, bool>> predicate);
+
+	int Insert<T>(T entity);
+
+	int Update<T>(T entity);
+
+	int Delete<T>(T entity);
+
+	int Insert<T>(List<T>entities);
+
+	int Update<T>(List<T> entities);
+
+	int Delete<T>(List<T> entities);
+
+	int Count<T>(Expression<Func<T, bool>> predicate = null);
+}
+```
+
+For more information see [IDatabaseAdapter](https://github.com/SeppPenner/GenericDatabaseAccess/blob/master/GenericDatabaseAccess/Database/Generic/IDatabaseAdapter.cs)
+or [DatabaseAdapter](https://github.com/SeppPenner/GenericDatabaseAccess/blob/master/GenericDatabaseAccess/Database/Generic/DatabaseAdapter.cs)
 
 Change history
 --------------
