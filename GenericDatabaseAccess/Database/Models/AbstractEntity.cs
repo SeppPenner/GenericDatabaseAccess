@@ -13,6 +13,13 @@ namespace GenericDatabaseAccess.Database.Models
 
         private DateTime _modifiedAt;
 
+        // ReSharper disable once MemberCanBeProtected.Global
+        public AbstractEntity()
+        {
+            ModifiedAt = DateTime.Now;
+            CreatedAt = DateTime.Now;
+        }
+
         [PrimaryKey]
         [AutoIncrement]
         // ReSharper disable once UnusedMember.Global
@@ -66,6 +73,7 @@ namespace GenericDatabaseAccess.Database.Models
         // ReSharper disable once MemberCanBeProtected.Global
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
+            ModifiedAt = DateTime.Now;
             var handler = PropertyChanged;
             handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
