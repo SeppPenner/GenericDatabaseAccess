@@ -192,8 +192,20 @@ namespace GenericDatabaseAccess.Database.Generic
 
         private int CountNoPredicate()
         {
-            var count = Get().Count;
-            _log.Info(string.Format(_currentLanguage.GetWord("ExecutedCountSimple"), "Names", count));
+            var count = 0;
+            const string sql = "SELECT COUNT(Id) FROM Names";
+            _connection.Open();
+            using (var command = new SQLiteCommand(sql, _connection))
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader != null && reader.Read())
+
+                        count = Convert.ToInt32(reader[0].ToString());
+                }
+            }
+            _log.Info(string.Format(_currentLanguage.GetWord("ExecutedCount"), "Names", null, count));
+            _connection.Close();
             return count;
         }
 
