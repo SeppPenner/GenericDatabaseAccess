@@ -178,4 +178,5 @@ or [DatabaseAdapter](https://github.com/SeppPenner/GenericDatabaseAccess/blob/ma
 Change history
 --------------
 
+* **Version 1.0.0.1 (2017-08-16)** : Smaller bugfixes.
 * **Version 1.0.0.0 (2017-08-08)** : 1.0 release.
