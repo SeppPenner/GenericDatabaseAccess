@@ -41,9 +41,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Languages, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Languages.dll</HintPath>
+    <Reference Include="HelpLibraryManagerLauncher, Version=2016.4.9.0, Culture=neutral, PublicKeyToken=c8895f0c125eff20, processorArchitecture=MSIL">
+      <HintPath>..\packages\HaemmerElectronics.SeppPenner.Language.1.0.0.6\lib\Documentation\Sandcastle\HelpLibraryManagerLauncher.exe</HintPath>
+    </Reference>
+    <Reference Include="Languages, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HaemmerElectronics.SeppPenner.Language.1.0.0.6\lib\.Net 4.6.2\Languages.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -97,6 +99,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
