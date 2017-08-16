@@ -102,7 +102,7 @@ namespace GenericDatabaseAccess.Database.Generic
         {
             var result = GetCollection(Get());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Sold", null, null,
-                result));
+                string.Join(";", result)));
             return result;
         }
 
@@ -111,7 +111,7 @@ namespace GenericDatabaseAccess.Database.Generic
             // ReSharper disable once AssignNullToNotNullAttribute
             var result = GetCollection(GetQueryable().Where(predicate).ToList());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Sold", predicate, null,
-                result));
+                string.Join(";", result)));
             return result;
         }
 
@@ -120,7 +120,7 @@ namespace GenericDatabaseAccess.Database.Generic
             // ReSharper disable once AssignNullToNotNullAttribute
             var result = GetCollection(GetQueryable().OrderBy(orderBy).ToList());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Sold", null, orderBy,
-                result));
+                string.Join(";", result)));
             return result;
         }
 
@@ -130,14 +130,14 @@ namespace GenericDatabaseAccess.Database.Generic
             // ReSharper disable AssignNullToNotNullAttribute
             var result = GetCollection(GetQueryable().Where(predicate).OrderBy(orderBy).ToList());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Sold", predicate, orderBy,
-                result));
+                string.Join(";", result)));
             return result;
         }
 
         public Sold Get(Expression<Func<Sold, bool>> predicate)
         {
             var result = GetQueryable().Where(predicate).FirstOrDefault();
-            _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetSinglePredicate"), "Sold", predicate, result));
+            _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetSinglePredicate"), "Sold", predicate, string.Join(";", result)));
             return result;
         }
 

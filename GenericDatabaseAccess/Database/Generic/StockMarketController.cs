@@ -102,7 +102,7 @@ namespace GenericDatabaseAccess.Database.Generic
         {
             var result = GetCollection(Get());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "StockMarket", null, null,
-                result));
+                string.Join(";", result)));
             return result;
         }
 
@@ -111,7 +111,7 @@ namespace GenericDatabaseAccess.Database.Generic
             // ReSharper disable once AssignNullToNotNullAttribute
             var result = GetCollection(GetQueryable().Where(predicate).ToList());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "StockMarket", predicate,
-                null, result));
+                null, string.Join(";", result)));
             return result;
         }
 
@@ -121,7 +121,7 @@ namespace GenericDatabaseAccess.Database.Generic
             // ReSharper disable once AssignNullToNotNullAttribute
             var result = GetCollection(GetQueryable().OrderBy(orderBy).ToList());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "StockMarket", null,
-                orderBy, result));
+                orderBy, string.Join(";", result)));
             return result;
         }
 
@@ -132,7 +132,7 @@ namespace GenericDatabaseAccess.Database.Generic
             // ReSharper disable AssignNullToNotNullAttribute
             var result = GetCollection(GetQueryable().Where(predicate).OrderBy(orderBy).ToList());
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "StockMarket", predicate,
-                orderBy, result));
+                orderBy, string.Join(";", result)));
             return result;
         }
 
@@ -140,7 +140,7 @@ namespace GenericDatabaseAccess.Database.Generic
         {
             var result = GetQueryable().Where(predicate).FirstOrDefault();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetSinglePredicate"), "StockMarket", predicate,
-                result));
+                string.Join(";", result)));
             return result;
         }
 
