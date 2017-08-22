@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using GenericDatabaseAccess.Database.Attributes;
+using StockExchangeGame.Database.Attributes;
 
-namespace GenericDatabaseAccess.Database.Models
+namespace StockExchangeGame.Database.Models
 {
     public class AbstractEntity : INotifyPropertyChanged
     {

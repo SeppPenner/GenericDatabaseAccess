@@ -5,11 +5,11 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using GenericDatabaseAccess.Database.Models;
 using log4net;
 using Languages.Interfaces;
+using StockExchangeGame.Database.Models;
 
-namespace GenericDatabaseAccess.Database.Generic
+namespace StockExchangeGame.Database.Generic
 {
     // ReSharper disable once UnusedMember.Global
     public class NamesController : IEntityController<Names>
@@ -291,5 +291,17 @@ namespace GenericDatabaseAccess.Database.Generic
         {
             return Get().AsQueryable();
         }
+		
+		public void Truncate()
+		{
+            const string sql = "DELETE FROM Names";
+            _connection.Open();
+            using (var command = new SQLiteCommand(sql, _connection))
+            {
+                command.ExecuteNonQuery();
+            }
+            _log.Info(string.Format(_currentLanguage.GetWord("ExecutedTruncate"), "Names"));
+            _connection.Close();
+		}
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq.Expressions;
 using Languages.Interfaces;
 
-namespace GenericDatabaseAccess.Database.Generic
+namespace StockExchangeGame.Database.Generic
 {
     // ReSharper disable once UnusedMember.Global
     public interface IEntityController<T>
@@ -45,5 +45,7 @@ namespace GenericDatabaseAccess.Database.Generic
 
         // ReSharper disable once UnusedMember.Global
         int Count(Expression<Func<T, bool>> predicate = null);
+		
+		void Truncate();
     }
 }

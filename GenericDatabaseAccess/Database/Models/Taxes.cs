@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GenericDatabaseAccess.Database.Models
+namespace StockExchangeGame.Database.Models
 {
     // ReSharper disable once UnusedMember.Global
     public class Taxes : AbstractEntity
