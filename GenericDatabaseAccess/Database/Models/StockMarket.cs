@@ -1,4 +1,4 @@
-﻿namespace StockExchangeGame.Database.Models
+﻿namespace GenericDatabaseAccess.Database.Models
 {
     // ReSharper disable once UnusedMember.Global
     public class StockMarket : AbstractEntity

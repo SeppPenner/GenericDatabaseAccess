@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StockExchangeGame.Database.Attributes
+namespace GenericDatabaseAccess.Database.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     // ReSharper disable once UnusedMember.Global

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq.Expressions;
 using Languages.Interfaces;
 
-namespace StockExchangeGame.Database.Generic
+namespace GenericDatabaseAccess.Database.Generic
 {
     // ReSharper disable once UnusedMember.Global
     public interface IEntityController<T>

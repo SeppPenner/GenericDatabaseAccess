@@ -6,9 +6,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Languages.Interfaces;
-using StockExchangeGame.Database.Models;
+using GenericDatabaseAccess.Database.Models;
 
-namespace StockExchangeGame.Database.Generic
+namespace GenericDatabaseAccess.Database.Generic
 {
     // ReSharper disable once UnusedMember.Global
     public class DatabaseAdapter : IDatabaseAdapter

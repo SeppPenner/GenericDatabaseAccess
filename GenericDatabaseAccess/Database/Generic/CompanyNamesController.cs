@@ -7,9 +7,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 using log4net;
 using Languages.Interfaces;
-using StockExchangeGame.Database.Models;
+using GenericDatabaseAccess.Database.Models;
 
-namespace StockExchangeGame.Database.Generic
+namespace GenericDatabaseAccess.Database.Generic
 {
     // ReSharper disable once UnusedMember.Global
     public class CompanyNamesController : IEntityController<CompanyNames>

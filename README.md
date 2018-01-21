@@ -2,7 +2,7 @@ GenericDatabaseAccess
 ====================================
 
 GenericDatabaseAccess is an assembly on how to access databases in a generic way and using C#'s LINQ.
-The assembly was written and tested in .Net 4.6.2.
+The assembly was written and tested in .Net 4.7.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/xwfx8q48taebdx2e?svg=true)](https://ci.appveyor.com/project/SeppPenner/genericdatabaseaccess)
 

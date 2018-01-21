@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StockExchangeGame.Database.Models
+namespace GenericDatabaseAccess.Database.Models
 {
     public class StockHistory : AbstractEntity
     {
