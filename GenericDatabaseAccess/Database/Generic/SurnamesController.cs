@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using GenericDatabaseAccess.Database.Extensions;
 using log4net;
 using Languages.Interfaces;
 using GenericDatabaseAccess.Database.Models;
@@ -100,7 +101,7 @@ namespace GenericDatabaseAccess.Database.Generic
 
         private ObservableCollection<Surnames> GetNoPredicateNoOrderBy()
         {
-            var result = GetCollection(Get());
+            var result = Get().ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Surnames", null, null,
                 string.Join(";", result)));
             return result;
@@ -109,7 +110,7 @@ namespace GenericDatabaseAccess.Database.Generic
         private ObservableCollection<Surnames> GetPredicateOnly(Expression<Func<Surnames, bool>> predicate = null)
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().Where(predicate).ToList());
+            var result = GetQueryable().Where(predicate).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Surnames", predicate,
                 null, string.Join(";", result)));
             return result;
@@ -118,7 +119,7 @@ namespace GenericDatabaseAccess.Database.Generic
         private ObservableCollection<Surnames> GetOrderByOnly<TValue>(Expression<Func<Surnames, TValue>> orderBy = null)
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().OrderBy(orderBy).ToList());
+            var result = GetQueryable().OrderBy(orderBy).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Surnames", null, orderBy,
                 string.Join(";", result)));
             return result;
@@ -129,7 +130,7 @@ namespace GenericDatabaseAccess.Database.Generic
             Expression<Func<Surnames, TValue>> orderBy = null)
         {
             // ReSharper disable AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().Where(predicate).OrderBy(orderBy).ToList());
+            var result = GetQueryable().Where(predicate).OrderBy(orderBy).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Surnames", predicate,
                 orderBy, string.Join(";", result)));
             return result;
@@ -243,14 +244,6 @@ namespace GenericDatabaseAccess.Database.Generic
                 Deleted = Convert.ToBoolean(reader["Deleted"].ToString()),
                 ModifiedAt = Convert.ToDateTime(reader["ModifiedAt"].ToString())
             };
-        }
-
-        private ObservableCollection<Surnames> GetCollection(IEnumerable<Surnames> oldList)
-        {
-            var collection = new ObservableCollection<Surnames>();
-            foreach (var item in oldList)
-                collection.Add(item);
-            return collection;
         }
 
         private void PrepareCommandInsert(SQLiteCommand command, Surnames surnames)

@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using GenericDatabaseAccess.Database.Extensions;
 using log4net;
 using Languages.Interfaces;
 using GenericDatabaseAccess.Database.Models;
@@ -100,7 +101,7 @@ namespace GenericDatabaseAccess.Database.Generic
 
         private ObservableCollection<Stock> GetNoPredicateNoOrderBy()
         {
-            var result = GetCollection(Get());
+            var result = Get().ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Stock", null, null,
                 string.Join(";", result)));
             return result;
@@ -109,7 +110,7 @@ namespace GenericDatabaseAccess.Database.Generic
         private ObservableCollection<Stock> GetPredicateOnly(Expression<Func<Stock, bool>> predicate = null)
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().Where(predicate).ToList());
+            var result = GetQueryable().Where(predicate).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Stock", predicate, null,
                 string.Join(";", result)));
             return result;
@@ -118,7 +119,7 @@ namespace GenericDatabaseAccess.Database.Generic
         private ObservableCollection<Stock> GetOrderByOnly<TValue>(Expression<Func<Stock, TValue>> orderBy = null)
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().OrderBy(orderBy).ToList());
+            var result = GetQueryable().OrderBy(orderBy).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Stock", null, orderBy,
                 string.Join(";", result)));
             return result;
@@ -129,7 +130,7 @@ namespace GenericDatabaseAccess.Database.Generic
             Expression<Func<Stock, TValue>> orderBy = null)
         {
             // ReSharper disable AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().Where(predicate).OrderBy(orderBy).ToList());
+            var result = GetQueryable().Where(predicate).OrderBy(orderBy).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "Stock", predicate,
                 orderBy, string.Join(";", result)));
             return result;
@@ -249,14 +250,6 @@ namespace GenericDatabaseAccess.Database.Generic
                 ModifiedAt = Convert.ToDateTime(reader["ModifiedAt"].ToString()),
                 StockMarketId = Convert.ToInt64(reader["StockMarketId"].ToString())
             };
-        }
-
-        private ObservableCollection<Stock> GetCollection(IEnumerable<Stock> oldList)
-        {
-            var collection = new ObservableCollection<Stock>();
-            foreach (var item in oldList)
-                collection.Add(item);
-            return collection;
         }
 
         private void PrepareCommandInsert(SQLiteCommand command, Stock stock)

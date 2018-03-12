@@ -13,7 +13,7 @@ namespace GenericDatabaseAccess.Database.Generic
     // ReSharper disable once UnusedMember.Global
     public class DatabaseAdapter : IDatabaseAdapter
     {
-        private const string SqlDbFileName = "StockGame.sqlite3";
+        private const string SqlDbFileName = "Database.sqlite3";
         private IEntityController<Bought> _boughtController;
         private IEntityController<CompanyEndings> _companyEndingsController;
         private IEntityController<CompanyNames> _companyNamesController;
@@ -55,9 +55,7 @@ namespace GenericDatabaseAccess.Database.Generic
         public string GetDatabasePath()
         {
             var location = Assembly.GetExecutingAssembly().Location;
-            return location != null
-                ? Path.Combine(Directory.GetParent(location).FullName, SqlDbFileName)
-                : string.Empty;
+            return Path.Combine(Directory.GetParent(location).FullName, SqlDbFileName);
         }
 
         public void CreateBoughtTable()
@@ -651,11 +649,8 @@ namespace GenericDatabaseAccess.Database.Generic
                 _surnamesController.Truncate();
 				return;
             }
-			if (typeof(T) == typeof(Taxes))
-            {
-                _taxesController.Truncate();
-				return;
-            }
+            if (typeof(T) != typeof(Taxes)) return;
+            _taxesController.Truncate();
         }
     }
 }

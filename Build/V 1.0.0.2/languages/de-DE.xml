@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Identifier>de-DE</Identifier> <!--According to https://msdn.microsoft.com/de-de/library/ee825488(v=cs.20).aspx-->
+	<Name>Deutsch</Name>
+	<Words>
+		<Word>
+			<Key>SelectLanguage</Key>
+			<Value>Bitte wählen Sie eine Sprache aus</Value>
+		</Word>
+		<Word>
+			<Key>ErrorInDatabaseInit</Key>
+			<Value>Ein Fehler trat bei der Initialisierung der Datenbank auf. Siehe Log für weitere Details.</Value>
+		</Word>
+		<Word>
+			<Key>CurrentViewCannotBeClosed</Key>
+			<Value>Die aktuelle Ansicht kann nicht geschlossen werden.</Value>
+		</Word>
+		<Word>
+			<Key>TableCreated</Key>
+			<Value>Die Tabellenerstellung für Tabelle "{0}" endete mit dem Ergebniscode: "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGet</Key>
+			<Value>Get() wurde für den Typ "{0}" für die Liste an Elementen "{1}" angewendet.</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGetSingle</Key>
+			<Value>Get() wurde für den Typ "{0}" für das Element "{1}" angewendet.</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedInsert</Key>
+			<Value>Insert() wurde für den Typ "{0}" für das Element "{1}" angewendet. Ergebnis: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedUpdate</Key>
+			<Value>Update() wurde für den Typ "{0}" für das Element "{1}" angewendet. Ergebnis: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedDelete</Key>
+			<Value>Delete() wurde für den Typ "{0}" für das Element "{1}" angewendet. Ergebnis: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedCountSimple</Key>
+			<Value>Count() wurde für den Typ "{0}" angewendet. Ergebnis: "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedCount</Key>
+			<Value>Count() wurde für den Typ "{0}" mit dem Predicate "{1}" angewendet. Ergebnis: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>LanguageSet</Key>
+			<Value>Die Sprache wurde für den Typ "{0}" auf "{1}" gesetzt.</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGetPredicateOrderBy</Key>
+			<Value>Get() wurde für den Typ "{0}" mit dem Predicate "{1}" und der OrderBy-Klausel "{2}" angewendet. Ergebnis: {3}.</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGetSinglePredicate</Key>
+			<Value>Get() wurde für den Typ "{0}" mit dem Predicate "{1}" angewendet. Ergebnis: "{2}".</Value>
+		</Word>
+	</Words>
+</Language>

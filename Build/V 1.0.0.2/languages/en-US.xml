@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Identifier>en-US</Identifier> <!--According to https://msdn.microsoft.com/de-de/library/ee825488(v=cs.20).aspx-->
+	<Name>English (US)</Name>
+	<Words>
+		<Word>
+			<Key>SelectLanguage</Key>
+			<Value>Please select a language</Value>
+		</Word>
+		<Word>
+			<Key>ErrorInDatabaseInit</Key>
+			<Value>An error occured in the database initialization. Please see the log for more details.</Value>
+		</Word>
+		<Word>
+			<Key>CurrentViewCannotBeClosed</Key>
+			<Value>The current view cannot be closed.</Value>
+		</Word>
+		<Word>
+			<Key>TableCreated</Key>
+			<Value>The table creation for table "{0}" ended with result: "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGet</Key>
+			<Value>Get() was executed for type "{0}" for the list of elements: "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGetSingle</Key>
+			<Value>Get() was executed for type "{0}" for the element: "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedInsert</Key>
+			<Value>Insert() wwas executed for type "{0}" for the element: "{1}". Result: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedUpdate</Key>
+			<Value>Update() was executed for type "{0}" for the element: "{1}". Result: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedDelete</Key>
+			<Value>Delete() was executed for type "{0}" for the element: "{1}". Result: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedCountSimple</Key>
+			<Value>Count() was executed for type "{0}". Result: "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedCount</Key>
+			<Value>Count() was executed for type "{0}" with the predicate "{1}". Result: "{2}".</Value>
+		</Word>
+		<Word>
+			<Key>LanguageSet</Key>
+			<Value>The language for type "{0}" was set to "{1}".</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGetPredicateOrderBy</Key>
+			<Value>Get() was executed for type "{0}" with the predicate "{1}" and the orderBy clause "{2}". Result: {3}.</Value>
+		</Word>
+		<Word>
+			<Key>ExecutedGetSinglePredicate</Key>
+			<Value>Get() was executed for type "{0}" with the predicate "{1}". Result: "{2}"</Value>
+		</Word>
+	</Words>
+</Language>

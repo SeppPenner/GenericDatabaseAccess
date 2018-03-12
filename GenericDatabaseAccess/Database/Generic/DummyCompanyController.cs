@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using GenericDatabaseAccess.Database.Extensions;
 using log4net;
 using Languages.Interfaces;
 using GenericDatabaseAccess.Database.Models;
@@ -100,7 +101,7 @@ namespace GenericDatabaseAccess.Database.Generic
 
         private ObservableCollection<DummyCompany> GetNoPredicateNoOrderBy()
         {
-            var result = GetCollection(Get());
+            var result = Get().ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "DummyCompany", null, null,
                 string.Join(";", result)));
             return result;
@@ -110,7 +111,7 @@ namespace GenericDatabaseAccess.Database.Generic
             Expression<Func<DummyCompany, bool>> predicate = null)
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().Where(predicate).ToList());
+            var result = GetQueryable().Where(predicate).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "DummyCompany", predicate,
                 null, string.Join(";", result)));
             return result;
@@ -120,7 +121,7 @@ namespace GenericDatabaseAccess.Database.Generic
             Expression<Func<DummyCompany, TValue>> orderBy = null)
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().OrderBy(orderBy).ToList());
+            var result = GetQueryable().OrderBy(orderBy).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "DummyCompany", null,
                 orderBy, string.Join(";", result)));
             return result;
@@ -131,7 +132,7 @@ namespace GenericDatabaseAccess.Database.Generic
             Expression<Func<DummyCompany, TValue>> orderBy = null)
         {
             // ReSharper disable AssignNullToNotNullAttribute
-            var result = GetCollection(GetQueryable().Where(predicate).OrderBy(orderBy).ToList());
+            var result = GetQueryable().Where(predicate).OrderBy(orderBy).ToCollection();
             _log.Info(string.Format(_currentLanguage.GetWord("ExecutedGetPredicateOrderBy"), "DummyCompany", predicate,
                 orderBy, string.Join(";", result)));
             return result;
@@ -251,14 +252,6 @@ namespace GenericDatabaseAccess.Database.Generic
                 SumInEuro = Convert.ToInt64(reader["SumInEuro"].ToString()),
                 Active = Convert.ToBoolean(reader["Active"].ToString())
             };
-        }
-
-        private ObservableCollection<DummyCompany> GetCollection(IEnumerable<DummyCompany> oldList)
-        {
-            var collection = new ObservableCollection<DummyCompany>();
-            foreach (var item in oldList)
-                collection.Add(item);
-            return collection;
         }
 
         private void PrepareCommandInsert(SQLiteCommand command, DummyCompany dummyCompany)
