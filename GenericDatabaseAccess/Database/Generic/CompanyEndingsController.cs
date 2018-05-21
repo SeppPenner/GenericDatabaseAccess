@@ -19,9 +19,9 @@ namespace GenericDatabaseAccess.Database.Generic
         private readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private ILanguage _currentLanguage;
 
-        public CompanyEndingsController(string connectionString)
+        public CompanyEndingsController(SQLiteConnection connection)
         {
-            _connection = new SQLiteConnection(connectionString);
+            _connection = connection;
         }
 
         public void SetCurrentLanguage(ILanguage language)

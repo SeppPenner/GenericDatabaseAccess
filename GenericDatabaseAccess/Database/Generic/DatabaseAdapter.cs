@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -27,6 +28,7 @@ namespace GenericDatabaseAccess.Database.Generic
         private IEntityController<StockMarket> _stockMarketController;
         private IEntityController<Surnames> _surnamesController;
         private IEntityController<Taxes> _taxesController;
+        private SQLiteConnection _connection;
 
         public DatabaseAdapter(ILanguage language)
         {
@@ -229,18 +231,19 @@ namespace GenericDatabaseAccess.Database.Generic
 
         private void InitializeControllers(string connectionString)
         {
-            _boughtController = new BoughtController(connectionString);
-            _companyEndingsController = new CompanyEndingsController(connectionString);
-            _companyNamesController = new CompanyNamesController(connectionString);
-            _dummyCompanyController = new DummyCompanyController(connectionString);
-            _merchantController = new MerchantController(connectionString);
-            _namesController = new NamesController(connectionString);
-            _soldController = new SoldController(connectionString);
-            _stockController = new StockController(connectionString);
-            _stockHistoryController = new StockHistoryController(connectionString);
-            _stockMarketController = new StockMarketController(connectionString);
-            _surnamesController = new SurnamesController(connectionString);
-            _taxesController = new TaxesController(connectionString);
+            _connection = new SQLiteConnection(connectionString);
+            _boughtController = new BoughtController(_connection);
+            _companyEndingsController = new CompanyEndingsController(_connection);
+            _companyNamesController = new CompanyNamesController(_connection);
+            _dummyCompanyController = new DummyCompanyController(_connection);
+            _merchantController = new MerchantController(_connection);
+            _namesController = new NamesController(_connection);
+            _soldController = new SoldController(_connection);
+            _stockController = new StockController(_connection);
+            _stockHistoryController = new StockHistoryController(_connection);
+            _stockMarketController = new StockMarketController(_connection);
+            _surnamesController = new SurnamesController(_connection);
+            _taxesController = new TaxesController(_connection);
         }
 
         private void SetLanguages(ILanguage language)
