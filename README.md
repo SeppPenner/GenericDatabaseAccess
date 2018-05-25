@@ -5,6 +5,11 @@ GenericDatabaseAccess is an assembly on how to access databases in a generic way
 The assembly was written and tested in .Net 4.7.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/xwfx8q48taebdx2e?svg=true)](https://ci.appveyor.com/project/SeppPenner/genericdatabaseaccess)
+[![GitHub issues](https://img.shields.io/github/issues/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/issues)
+[![GitHub forks](https://img.shields.io/github/forks/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/network)
+[![GitHub stars](https://img.shields.io/github/stars/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/SeppPenner/GenericDatabaseAccess/master/License.txt)
+
 
 ## Example initialization:
 
