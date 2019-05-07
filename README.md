@@ -2,13 +2,14 @@ GenericDatabaseAccess
 ====================================
 
 GenericDatabaseAccess is an assembly on how to access databases in a generic way and using C#'s LINQ.
-The assembly was written and tested in .Net 4.7.
+The assembly was written and tested in .Net 4.8.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/xwfx8q48taebdx2e?svg=true)](https://ci.appveyor.com/project/SeppPenner/genericdatabaseaccess)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/network)
 [![GitHub stars](https://img.shields.io/github/stars/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/SeppPenner/GenericDatabaseAccess/master/License.txt)
+[![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/GenericDatabaseAccess/badge.svg)](https://snyk.io/test/github/SeppPenner/GenericDatabaseAccess)
 
 
 ## Example initialization:
@@ -118,62 +119,62 @@ var sorted = _databaseAdapter.Get<Merchant, bool>(x => !x.Deleted, x.Name);
 ```csharp
 public interface IDatabaseAdapter
 {
-	void SetCurrentLanguage(ILanguage language);
+    void SetCurrentLanguage(ILanguage language);
 
-	ILanguage GetCurrentLanguage();
+    ILanguage GetCurrentLanguage();
 
-	string GetDatabasePath();
+    string GetDatabasePath();
 
-	string GetConnectionString();
+    string GetConnectionString();
 
-	void CreateBoughtTable();
+    void CreateBoughtTable();
 
-	void CreateCompanyEndingsTable();
+    void CreateCompanyEndingsTable();
 
-	void CreateCompanyNamesTable();
+    void CreateCompanyNamesTable();
 
-	void CreateDummyCompanyTable();
+    void CreateDummyCompanyTable();
 
-	void CreateMerchantTable();
+    void CreateMerchantTable();
 
-	void CreateNamesTable();
+    void CreateNamesTable();
 
-	void CreateSoldTable();
+    void CreateSoldTable();
 
-	void CreateStockTable();
+    void CreateStockTable();
 
-	void CreateStockHistoryTable();
+    void CreateStockHistoryTable();
 
-	void CreateStockMarketTable();
+    void CreateStockMarketTable();
 
-	void CreateSurnamesTable();
+    void CreateSurnamesTable();
 
-	void CreateTaxesTable();
+    void CreateTaxesTable();
 
-	void CreateAllTables();
+    void CreateAllTables();
 
-	List<T> Get<T>();
+    List<T> Get<T>();
 
-	T Get<T>(long id);
+    T Get<T>(long id);
 
-	ObservableCollection<T> Get<T, TValue>(Expression<Func<T, bool>> predicate = null,
-		Expression<Func<T, TValue>> orderBy = null);
+    ObservableCollection<T> Get<T, TValue>(Expression<Func<T, bool>> predicate = null,
+        Expression<Func<T, TValue>> orderBy = null);
 
-	T Get<T>(Expression<Func<T, bool>> predicate);
+    T Get<T>(Expression<Func<T, bool>> predicate);
 
-	int Insert<T>(T entity);
+    int Insert<T>(T entity);
 
-	int Update<T>(T entity);
+    int Update<T>(T entity);
 
-	int Delete<T>(T entity);
+    int Delete<T>(T entity);
 
-	int Insert<T>(List<T>entities);
+    int Insert<T>(List<T>entities);
 
-	int Update<T>(List<T> entities);
+    int Update<T>(List<T> entities);
 
-	int Delete<T>(List<T> entities);
+    int Delete<T>(List<T> entities);
 
-	int Count<T>(Expression<Func<T, bool>> predicate = null);
+    int Count<T>(Expression<Func<T, bool>> predicate = null);
 }
 ```
 
@@ -183,6 +184,7 @@ or [DatabaseAdapter](https://github.com/SeppPenner/GenericDatabaseAccess/blob/ma
 Change history
 --------------
 
+* **Version 1.0.0.4 (2019-05-07)** : Updated .Net version to 4.8.
 * **Version 1.0.0.3 (2018-05-21)** : Added static database connection.
 * **Version 1.0.0.2 (2018-03-12)** : Updated ToCollection calls.
 * **Version 1.0.0.1 (2017-08-16)** : Smaller bugfixes.
