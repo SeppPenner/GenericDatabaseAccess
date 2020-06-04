@@ -4,6 +4,8 @@ GenericDatabaseAccess
 GenericDatabaseAccess is an assembly on how to access databases in a generic way and using C#'s LINQ.
 The assembly was written and tested in .Net 4.8.
 
+This shouldn't be used any longer, check out the [Dapper project](https://github.com/StackExchange/Dapper), it will make things a lot easier.
+
 [![Build status](https://ci.appveyor.com/api/projects/status/xwfx8q48taebdx2e?svg=true)](https://ci.appveyor.com/project/SeppPenner/genericdatabaseaccess)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SeppPenner/GenericDatabaseAccess.svg)](https://github.com/SeppPenner/GenericDatabaseAccess/network)
